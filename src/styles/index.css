@@ -1,3 +1,109 @@
 /* 
     General Styles
 */
+body{
+    background-color: black;
+    height: 100%;
+    color: white;
+}
+.navbar{
+    background-color: black !important;
+    color: white !important;
+    display: flex;
+    width: 93%;
+    margin: auto;
+}
+#local-nav-logo-mobile{
+    max-width: 30%; 
+    height: auto; 
+}
+.navbar button{
+    align-self: flex-end;
+}
+.dropdown-item:hover{
+    text-shadow: none;
+}
+/*Title below bar*/
+.titleDiv{
+    position: relative;
+    width: 93%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+.hrTitle{
+    align-self: flex-start;
+}
+.hrTitle::before{
+    content: "";
+    position: absolute;
+    background-color: #5a5c5d;
+    height: 2px;
+    width: 4px;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 2px;
+}
+.hrTitle::after{
+    content: "";
+    position: absolute;
+    background-color: #48494a;
+    height: 2px;
+    width: 4px;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 2px;
+    left: 8px;
+    width: calc(100% - 8px);
+}
+/*Character container*/
+.character-container{
+    width: 93%;
+    margin: auto;
+    margin-top: 3% !important;
+    overflow-x:auto;
+}
+.character{
+    background-color: rgb(32, 28, 36);
+}
+.card-text{
+    color: rgb(181, 181, 181)!important ;
+}
+.card{
+    position: relative;
+    padding-bottom: 3.5%;
+    margin-right: 3vh;
+}
+.bottom{
+    background-color: black;
+    -webkit-clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    align-self: center;
+    width: 75%;
+    height: 3vh;
+    position: absolute;
+    bottom: -1px;
+}
+
+/*Footer section*/
+.footer{
+    width: 100%;
+    color: white;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+}
+ul{
+    list-style-type: none;
+    padding: 0px;
+}
+ul > li {
+    display: inline-block;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+}
+ul > li:hover{
+    text-shadow: 0px 0px 8px currentColor;
+}
