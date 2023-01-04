@@ -4,7 +4,7 @@
 body{
     background-color: black;
     height: 100%;
-    color: white;
+    color: #ddd;
 }
 .navbar{
     background-color: black !important;
@@ -14,7 +14,7 @@ body{
     margin: auto;
 }
 #local-nav-logo-mobile{
-    max-width: 30%; 
+    width: 100%; 
     height: auto; 
 }
 .navbar button{
@@ -22,6 +22,9 @@ body{
 }
 .dropdown-item:hover{
     text-shadow: none;
+}
+#navbar-image{
+    width: 30%;
 }
 /*Title below bar*/
 .titleDiv{
@@ -60,11 +63,16 @@ body{
 }
 /*Character container*/
 .character-container{
+    display: flex;
     width: 93%;
     margin: auto;
     margin-top: 3% !important;
-    overflow-x:auto;
+    overflow-x:scroll !important;
+    scrollbar-base-color: black;
 }
+::-webkit-scrollbar-track {
+    background: #f1f120;
+    }
 .character{
     background-color: rgb(32, 28, 36);
 }
@@ -74,7 +82,11 @@ body{
 .card{
     position: relative;
     padding-bottom: 3.5%;
+    padding-left: 0px;
+    padding-right: 0px;
     margin-right: 3vh;
+    min-width: 200px !important;
+    margin-bottom: 2%;
 }
 .bottom{
     background-color: black;
@@ -86,11 +98,48 @@ body{
     position: absolute;
     bottom: -1px;
 }
+.card-decal{
+    position: relative;
+    padding-bottom: 16px;
+    display: block;
+    top: 4%;
+    left: 5%;
+}
+.card:hover .card-decal:before,
+.card:hover .card-decal:after{
+    box-shadow: 0px 0px 4px 1px #c6ecfa;
+    color: white;
+    background: rgb(255, 255, 255) ;
+}
+
+.card-decal::before{
+    width: 4px;
+    left: 30px;
+    content: "";
+    position: absolute;
+    background-color: #5a5c5d;
+    height: 4px;
+    border-radius: 4px;
+    z-index: 2;
+}
+.card-decal::after{
+    content: "";
+    position: absolute;
+    background-color: #5a5c5d;
+    height: 4px;
+    width: 24px;
+    border-radius: 4px;
+    left: 2px;
+    z-index: 2;
+}
+.card-title{
+    margin-bottom: 50%;
+}
 
 /*Footer section*/
 .footer{
     width: 100%;
-    color: white;
+    color: #ddd;
     background-color: black;
     align-items: center;
     justify-content: center;
@@ -100,10 +149,18 @@ ul{
     padding: 0px;
 }
 ul > li {
+    font-size: 2.5vh;
     display: inline-block;
     margin-right: 2.5%;
     margin-left: 2.5%;
 }
 ul > li:hover{
-    text-shadow: 0px 0px 8px currentColor;
+    opacity: 100% !important;
+    color: white;
+    text-shadow: 0px 0px 8px #c6ecfa;
+}
+
+/*Character detail*/
+#characterDetailImg{
+    width: 20%;
 }
