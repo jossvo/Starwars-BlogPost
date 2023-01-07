@@ -14,8 +14,7 @@ body{
     margin: auto;
 }
 #local-nav-logo-mobile{
-    width: 100%; 
-    height: auto; 
+    height: 30px; 
 }
 .navbar button{
     align-self: flex-end;
@@ -26,18 +25,42 @@ body{
 #navbar-image{
     width: 30%;
 }
+.dropdown-item{
+    font-size: 1rem;
+    padding-left: 0px;
+}
+.fav-container{
+    display: flex;
+    width: 100%;
+}
+.dropdown-item .col-2{
+    display: none;
+    visibility: hidden;
+}
+.fav-container:hover .col-2{
+    display: block;
+    visibility: visible;
+    align-self: center;
+    background-color: red;
+    padding-left: 4%;
+    transition: -l ease ;
+}
+.favLink{
+    width: 90%;
+}
 /*Title below bar*/
 .titleDiv{
     position: relative;
     width: 93%;
     margin: auto;
     display: flex;
-    flex-direction: column;
     margin-top: 2%;
     margin-bottom: 3%;
+    padding-bottom: 1%;
 }
-.hrTitle{
-    align-self: flex-start;
+.typeTitle{
+    width: 70%;
+    margin-bottom: 0px;
 }
 .hrTitle::before{
     content: "";
@@ -61,6 +84,16 @@ body{
     left: 8px;
     width: calc(100% - 8px);
 }
+.pagination {
+    width: 100%;
+    margin-bottom: 0px !important;
+    float:right !important;
+}
+.page-link{
+    color: white !important;
+}
+
+
 /*Character container*/
 .character-container{
     display: flex;
@@ -73,6 +106,12 @@ body{
 ::-webkit-scrollbar-track {
     background: #f1f120;
     }
+#cardLink{
+    z-index: 3;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
 .character{
     background-color: rgb(32, 28, 36);
 }
@@ -134,6 +173,19 @@ body{
 }
 .card-title{
     margin-bottom: 50%;
+}
+.favorite{
+    position: relative;
+    z-index: 4;
+    color: #303132ba;
+    width: 10%;
+    left: 80%;
+}
+.fa-solid,
+.favorite:hover{
+    opacity: 100% !important;
+    color: white;
+    text-shadow: 0px 0px 8px #c6ecfa;
 }
 
 /*Footer section*/

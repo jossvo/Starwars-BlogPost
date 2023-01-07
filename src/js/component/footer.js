@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export const Footer = () => (
   <footer className="footer mt-auto py-3 text-center">
 	<div className="titleDiv">
-		<h3 className="hrTitle">Explore more</h3>
+		<h3 className="hrTitle footerTitle">Explore more</h3>
 	</div>
 
     <h6>More from Star Wars:</h6>
