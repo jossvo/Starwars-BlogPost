@@ -7,7 +7,7 @@ export const Footer = () => (
 	</div>
 
     <h6>More from Star Wars:</h6>
-	<ul>
+	<ul id="footerUl">
 		<li><i className="fa-brands fa-facebook"></i></li>
 		<li><i className="fa-brands fa-twitter"></i></li>
 		<li><i className="fa-brands fa-instagram"></i></li>

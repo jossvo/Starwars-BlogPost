@@ -2,64 +2,37 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-import tatooineImg from "../../img/Tatooine.png";
+import ImgNotFound from "../../img/404.jpeg";
 import "../../styles/home.css";
 
 const Home = () => {
   const { store, actions } = useContext(Context);
   const [loading, setLoading] = useState(true);
 
+  var itemsArr = ["people","planets","species","starships","vehicles"]
   useEffect(() => {
-    actions.getList("planets");
-    actions.getList("people");
+    itemsArr.forEach(elem=>{
+      actions.getList(elem);
+    })
   }, []);
-  //function to enable card onclick event when page finished loading
-  window.addEventListener("load", function () {
-    setLoading(false);
-  });
-
-
+  function errorImage(e) {
+    e.target.src="https://assets.materialup.com/uploads/52ccfcff-ec98-4166-927d-467a9a52bdf9/preview.png"
+  }
   return (
     <div>
-      {[store.people, store.planets].map((elem, elemIndex) => {
+      {[store.people,store.planets,store.species,store.starships,store.vehicles].map((elem, elemIndex) => {
         if (elem) {
           let title = "";
-          elemIndex === 0 ? (title = "Characters") : (title = "Planets");
+          elemIndex === 0 ? (title = "Characters") :
+           (title = itemsArr[elemIndex].charAt(0).toUpperCase()+itemsArr[elemIndex].slice(1));
           let type = "";
-          title === "Characters" ? (type = "people") : (type = "planets");
+          title === "Characters" ? (type = "people") :
+           (type = itemsArr[elemIndex]);
+
           return (
             <div key={elemIndex}>
               <div className="titleDiv">
                 <h3 className="hrTitle typeTitle">{title}</h3>
-                <nav>
-                  <ul className="pagination">
-                    <li>
-                      <Link className="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="page-link" href="#">
-                        1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="page-link" href="#">
-                        1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="page-link" href="#">
-                        1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </nav>
               </div>
               <div className="character-container ">
                 {elem.map((item, index) => {
@@ -67,13 +40,11 @@ const Home = () => {
                     <div className="character card" key={index}>
                       <Link id="cardLink" to={`/${type}/${item.uid}`}></Link>
                       <img
-                        src={
-                          title === "Planets" && item.uid === "1"
-                            ? tatooineImg
-                            : `https://starwars-visualguide.com/assets/img/${title.toLocaleLowerCase()}/${
+                        src={`https://starwars-visualguide.com/assets/img/${title.toLocaleLowerCase()}/${
                                 item.uid
                               }.jpg`
                         }
+                        onError={errorImage}
                         className="card-img-top"
                         alt="..."
                       />
