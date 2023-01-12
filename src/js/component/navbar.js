@@ -6,8 +6,8 @@ export const Navbar = () => {
   const { store, actions } = useContext(Context);
   var fav = store.favorites;
   return (
-    <div>
-      <nav className="navbar mb-3">
+    <div className="navbarDiv" >
+      <nav className="navbar mb-3" >
         <div id="navbar-image">
           <Link to={"/"}>
             <img
@@ -18,7 +18,7 @@ export const Navbar = () => {
           </Link>
         </div>
 
-        <div className="dropdown">
+        <div className="dropdown ms-auto">
           <button
             className="btn btn-secondary dropdown-toggle"
             type="button"
@@ -33,7 +33,7 @@ export const Navbar = () => {
                 <li className="fav-container dropdown-item" key={index}>
                   <div className="container">
                       <div className="row">
-                        <div className="col-2" onClick={()=>actions.addFavorite(elem.type,elem.name,elem.uid)}>
+                        <div className="col-2" onClick={()=>actions.removeFavorite(index)}>
                           <span>
                             <i className="fa fa-trash"></i>
                           </span>

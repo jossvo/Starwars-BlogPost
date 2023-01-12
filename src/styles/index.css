@@ -6,21 +6,34 @@ body{
     height: 100%;
     color: #ddd;
 }
+.navbarDiv{
+    width: 100%;
+    background-color: black !important;
+}
 .navbar{
     background-color: black !important;
     color: white !important;
     display: flex;
-    width: 93%;
+    width: 100%;
     margin: auto;
+    z-index: 10000;
+    position: fixed;
+    padding-left: 3.5%;
+    top: 0px;
 }
 #local-nav-logo-mobile{
     height: 30px; 
 }
 .navbar button{
     align-self: flex-end;
+    padding-right: 0px;
 }
 .dropdown-item:hover{
     text-shadow: none;
+}
+.dropdown{
+    margin-right: 7.5%;
+    margin-top: .5%;
 }
 #navbar-image{
     width: 30%;
@@ -84,6 +97,10 @@ body{
     left: 8px;
     width: calc(100% - 8px);
 }
+.activePage .page-link{
+    background-color: rgb(114, 114, 114) !important;
+    border-color: white;
+}
 .pagination {
     width: 100%;
     margin-bottom: 0px !important;
@@ -95,6 +112,13 @@ body{
 
 
 /*Character container*/
+.charLib{
+    margin-top: 10vh;
+}
+.page-link{
+    background-color: #201c24 !important;
+    border: 1px solid #616161;
+}
 .character-container{
     display: flex;
     width: 93%;
@@ -103,9 +127,27 @@ body{
     overflow-x:scroll !important;
     scrollbar-base-color: black;
 }
-::-webkit-scrollbar-track {
-    background: #f1f120;
-    }
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #201c24 #000000;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #000000;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #201c24;
+    border-radius: 14px;
+    border: 1px solid #616161;
+  }
 #cardLink{
     z-index: 3;
     position: absolute;

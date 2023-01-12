@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-
+import ImgNotFound from "../../img/404.jpeg";
 import "../../styles/demo.css";
 
 const CharacterDetails = () => {
@@ -27,7 +27,7 @@ const CharacterDetails = () => {
   },[elementData]);
 
   function errorImage(e) {
-    e.target.src="https://assets.materialup.com/uploads/52ccfcff-ec98-4166-927d-467a9a52bdf9/preview.png"
+    e.target.src=ImgNotFound
   }
 
   var elementArr = []
