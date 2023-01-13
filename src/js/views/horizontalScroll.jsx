@@ -57,19 +57,19 @@ const HorizontalScroll = ({itemType}) => {
     )
 
     return (
-      <div className="charLib">
+      <div className={itemType==="films"?"charLib":""}>
         <div className="titleDiv">
           <h3 className="hrTitle typeTitle">{title}</h3>
           {itemType==="films"?"":paginationDiv}
         </div>
         
-        <div className="character-container ">
+        <div className="character-container" style={itemType==="films"?{justifyContent:"center"}:{justifyContent:"left"}}>
           {elem.map((item, index) => {
             let elemName =""
               itemType==="films"?elemName=item.properties.title
               :elemName=item.name;
               return (
-                <div className="character card" key={index}>
+                <div className={"character card"} key={index}>
                   <Link id="cardLink" to={`/${itemType}/${item.uid}`}></Link>
                   <img
                     src={`https://starwars-visualguide.com/assets/img/${title.toLocaleLowerCase()}/${

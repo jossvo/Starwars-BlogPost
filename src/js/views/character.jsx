@@ -46,47 +46,44 @@ const CharacterDetails = () => {
   }
 
   return (
-    <div className="container">
-      <div id="charContainer">
-        <img
-          id="characterDetailImg"
-          src={`https://starwars-visualguide.com/assets/img/${elemType}/${id}.jpg`}
-          onError={errorImage}
-          alt=""
-        />
-        <div className="charInfo">
-          <h3>{elementData?.name}</h3>
-          <ul id="charDetailLi">
-            {elementData
-              ? elementArr.map((elem, index) => {
-                var tempVar = elementData[elem]
-                if(tempVar!="" && !tempVar.includes("http")&& typeof tempVar==="string"){
-                  return (
-                    <li key={index}>
-                      <span>
-                        <i className="fa-brands fa-galactic-senate"></i>
-                      </span>
-                      {`  ${titleCase(elem.replace("_"," "))}: ` + titleCase(elementData[elem])}
-                    </li>
-                  );
-                }
-                })
-              : ""}
-              {planetData?<li>
-                <span><i className="fa-brands fa-galactic-senate"></i></span>
-                {"  Homeworld: "}{titleCase(planetData.name)}
-              </li>
-              :""
+    <div id="charContainer">
+      <img
+        id="characterDetailImg"
+        src={`https://starwars-visualguide.com/assets/img/${elemType}/${id}.jpg`}
+        onError={errorImage}
+        alt=""
+      />
+      <div className="charInfo">
+        <h3>{elementData?.name}</h3>
+        <ul id="charDetailLi">
+          {elementData
+            ? elementArr.map((elem, index) => {
+              var tempVar = elementData[elem]
+              if(tempVar!="" && !tempVar.includes("http")&& typeof tempVar==="string"){
+                return (
+                  <li key={index}>
+                    <span>
+                      <i className="fa-brands fa-galactic-senate"></i>
+                    </span>
+                    {`  ${titleCase(elem.replace("_"," "))}: ` + titleCase(elementData[elem])}
+                  </li>
+                );
               }
-              
-          </ul>
-          <div
-            className="bottom"
-            style={{ width: "40%", marginLeft: "5%" }}
-          ></div>
-        </div>
+              })
+            : ""}
+            {planetData?<li>
+              <span><i className="fa-brands fa-galactic-senate"></i></span>
+              {"  Homeworld: "}{titleCase(planetData.name)}
+            </li>
+            :""
+            }
+            
+        </ul>
+        <div
+          className="bottom"
+          style={{ width: "40%", marginLeft: "5%" }}
+        ></div>
       </div>
-
     </div>
   );
 };
